@@ -1,7 +1,7 @@
-package com.example.oauth.member.service;
+package com.example.oauthPractice.member.service;
 
-import com.example.oauth.member.dto.AccessTokenDto;
-import com.example.oauth.member.dto.GoogleProfileDto;
+import com.example.oauthPractice.member.dto.AccessTokenDto;
+import com.example.oauthPractice.member.dto.GoogleProfileDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestClient;
 @Transactional
 public class GoogleService {
 
-    @Value("$spring.security.oauth2.client.registration.google.client-id}")
+    @Value("${spring.security.oauth2.client.registration.google.client-id}")
     private String googleClientId;
 
     @Value("${spring.security.oauth2.client.registration.google.client-secret}")
@@ -29,7 +29,6 @@ public class GoogleService {
 
 //        Spring6부터 RestTemplate 비추천상태이기에, 대신 RestClient 사용
         RestClient restClient = RestClient.create();
-
 //        MultiValueMap을 통해 자동으로 form-data형식으로 body 조립 가능
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("code", code);
@@ -37,6 +36,7 @@ public class GoogleService {
         params.add("client_secret", googleClientSecret);
         params.add("redirect_uri", googleRedirectUri);
         params.add("grant_type", "authorization_code");
+        System.out.println("여기까진 오니?");
 
         ResponseEntity<String> response =  restClient.post()
                 .uri("https://oauth2.googleapis.com/token")

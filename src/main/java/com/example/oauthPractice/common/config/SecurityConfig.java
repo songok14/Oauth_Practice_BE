@@ -1,7 +1,7 @@
-package com.example.oauth.common.config;
+package com.example.oauthPractice.common.config;
 
-import com.example.oauth.common.auth.JwtTokenFilter;
-import com.example.oauth.member.service.GoogleOauth2LoginSuccess;
+import com.example.oauthPractice.common.auth.JwtTokenFilter;
+import com.example.oauthPractice.member.service.GoogleOauth2LoginSuccess;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

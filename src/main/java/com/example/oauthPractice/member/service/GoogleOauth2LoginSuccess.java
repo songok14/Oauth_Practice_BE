@@ -1,9 +1,9 @@
-package com.example.oauth.member.service;
+package com.example.oauthPractice.member.service;
 
-import com.example.oauth.common.auth.JwtTokenProvider;
-import com.example.oauth.member.domain.Member;
-import com.example.oauth.member.domain.SocialType;
-import com.example.oauth.member.repository.MemberRepository;
+import com.example.oauthPractice.common.auth.JwtTokenProvider;
+import com.example.oauthPractice.member.domain.Member;
+import com.example.oauthPractice.member.domain.SocialType;
+import com.example.oauthPractice.member.repository.MemberRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

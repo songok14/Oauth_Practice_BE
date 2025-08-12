@@ -1,4 +1,4 @@
-package com.example.oauth.member.dto;
+package com.example.oauthPractice.member.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

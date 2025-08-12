@@ -1,4 +1,4 @@
-package com.example.oauth.common.auth;
+package com.example.oauthPractice.common.auth;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

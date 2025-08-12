@@ -1,12 +1,12 @@
-package com.example.oauth.member.controller;
+package com.example.oauthPractice.member.controller;
 
-import com.example.oauth.common.auth.JwtTokenProvider;
-import com.example.oauth.member.domain.Member;
-import com.example.oauth.member.domain.SocialType;
-import com.example.oauth.member.dto.*;
-import com.example.oauth.member.service.GoogleService;
+import com.example.oauthPractice.common.auth.JwtTokenProvider;
+import com.example.oauthPractice.member.domain.Member;
+import com.example.oauthPractice.member.domain.SocialType;
+import com.example.oauthPractice.member.dto.*;
+import com.example.oauthPractice.member.service.GoogleService;
 //import com.example.oauth.member.service.KakaoService;
-import com.example.oauth.member.service.MemberService;
+import com.example.oauthPractice.member.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

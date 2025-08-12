@@ -1,10 +1,10 @@
-package com.example.oauth.member.service;
+package com.example.oauthPractice.member.service;
 
-import com.example.oauth.member.domain.Member;
-import com.example.oauth.member.domain.SocialType;
-import com.example.oauth.member.dto.MemberCreateDto;
-import com.example.oauth.member.dto.MemberLoginDto;
-import com.example.oauth.member.repository.MemberRepository;
+import com.example.oauthPractice.member.domain.Member;
+import com.example.oauthPractice.member.domain.SocialType;
+import com.example.oauthPractice.member.dto.MemberCreateDto;
+import com.example.oauthPractice.member.dto.MemberLoginDto;
+import com.example.oauthPractice.member.repository.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

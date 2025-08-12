@@ -1,4 +1,4 @@
-package com.example.oauth.member.domain;
+package com.example.oauthPractice.member.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

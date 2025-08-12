@@ -53,10 +53,11 @@ public class MemberController {
 
     @PostMapping("/google/doLogin")
     public ResponseEntity<?> googleLogin(@RequestBody RedirectDto redirectDto){
-//        accesstoken 발급
-        AccessTokenDto accessTokenDto = googleService.getAccessToken(redirectDto.getCode());
-//        사용자정보 얻기
-        GoogleProfileDto googleProfileDto = googleService.getGoogleProfile(accessTokenDto.getAccess_token());
+        GoogleProfileDto googleProfileDto = googleService.getAccessToken(redirectDto.getCode());
+////        accesstoken 발급
+//        AccessTokenDto accessTokenDto = googleService.getAccessToken(redirectDto.getCode());
+////        사용자정보 얻기
+//        GoogleProfileDto googleProfileDto = googleService.getGoogleProfile(accessTokenDto.getAccess_token());
 //        회원가입이 되어 있지 않다면 회원가입
         Member originalMember = memberService.getMemberBySocialId(googleProfileDto.getSub());
         if(originalMember == null){

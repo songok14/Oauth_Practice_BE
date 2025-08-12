@@ -31,4 +31,8 @@ public class Member {
     private SocialType socialType;
 
     private String socialId;
+
+    private String national;
+//    @Column(nullable = false, columnDefinition = "CHAR(13)")
+    private String telNo;
 }

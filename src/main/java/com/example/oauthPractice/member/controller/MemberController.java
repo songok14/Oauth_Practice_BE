@@ -9,10 +9,7 @@ import com.example.oauthPractice.member.service.GoogleService;
 import com.example.oauthPractice.member.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,24 +50,34 @@ public class MemberController {
 
     @PostMapping("/google/doLogin")
     public ResponseEntity<?> googleLogin(@RequestBody RedirectDto redirectDto){
-        GoogleProfileDto googleProfileDto = googleService.getAccessToken(redirectDto.getCode());
+        String token = googleService.googleLogin(redirectDto);
+        if (token == null){
+
+        }
+        return new ResponseEntity<>(token, HttpStatus.OK);
+    }
+
+    @PatchMapping("/google/create")
+    public ResponseEntity<?> googleCreate(@RequestBody GoogleMemberCreateDto googleMemberCreateDto){
+        return new ResponseEntity<>(googleService.googleCreate(googleMemberCreateDto), HttpStatus.CREATED);
+    }
+//        GoogleProfileDto googleProfileDto = googleService.getAccessToken(redirectDto.getCode());
 ////        accesstoken 발급
 //        AccessTokenDto accessTokenDto = googleService.getAccessToken(redirectDto.getCode());
 ////        사용자정보 얻기
 //        GoogleProfileDto googleProfileDto = googleService.getGoogleProfile(accessTokenDto.getAccess_token());
 //        회원가입이 되어 있지 않다면 회원가입
-        Member originalMember = memberService.getMemberBySocialId(googleProfileDto.getSub());
-        if(originalMember == null){
-            originalMember = memberService.createOauth(googleProfileDto.getSub(), googleProfileDto.getEmail(), SocialType.GOOGLE);
-        }
-//        회원가입돼 있는 회원이라면 토큰발급
-        String jwtToken = jwtTokenProvider.createToken(originalMember.getEmail(), originalMember.getRole().toString());
+//        Member originalMember = memberService.getMemberBySocialId(googleProfileDto.getSub());
+//        if(originalMember == null){
+//            originalMember = memberService.createOauth(googleProfileDto.getSub(), googleProfileDto.getEmail(), SocialType.GOOGLE);
+//        }
+////        회원가입돼 있는 회원이라면 토큰발급
+//        String jwtToken = jwtTokenProvider.createToken(originalMember.getEmail(), originalMember.getRole().toString());
 
-        Map<String, Object> loginInfo = new HashMap<>();
-        loginInfo.put("id", originalMember.getId());
-        loginInfo.put("token", jwtToken);
-        return new ResponseEntity<>(loginInfo, HttpStatus.OK);
-    }
+//        Map<String, Object> loginInfo = new HashMap<>();
+//        loginInfo.put("id", originalMember.getId());
+//        loginInfo.put("token", jwtToken);
+//        return new ResponseEntity<>(loginInfo, HttpStatus.OK);
 
 
 //    @PostMapping("/kakao/doLogin")

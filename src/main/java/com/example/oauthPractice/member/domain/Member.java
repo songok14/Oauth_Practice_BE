@@ -1,5 +1,6 @@
 package com.example.oauthPractice.member.domain;
 
+import com.example.oauthPractice.member.dto.GoogleMemberCreateDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,4 +36,10 @@ public class Member {
     private String national;
 //    @Column(nullable = false, columnDefinition = "CHAR(13)")
     private String telNo;
+
+    public void googleCreate(GoogleMemberCreateDto googleMemberCreateDto){
+        this.name = googleMemberCreateDto.getName();
+        this.national = googleMemberCreateDto.getNational();
+        this.telNo = googleMemberCreateDto.getTelNo();
+    }
 }
